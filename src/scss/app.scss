@@ -1,5 +1,6 @@
 #root {
-  // max-width: 1280px;
+  max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
 
@@ -9,5 +10,10 @@
 
   a {
     padding: 2em;
+    transition: all 250ms ease-in-out;
+
+    &:hover {
+      background-color: #00004050;
+    }
   }
 }

@@ -26,6 +26,7 @@ class BabylonCanvas {
     const engine = new Engine(cnv, true);
     const scene = new Scene(engine);
 
+    //
     const camera: ArcRotateCamera = new ArcRotateCamera(
       'Camera',
       Math.PI / 2,
@@ -35,21 +36,42 @@ class BabylonCanvas {
       scene
     );
     camera.attachControl(cnv, true);
+    camera.position = new Vector3(6, 6, 3);
+
+    //
     const light1: HemisphericLight = new HemisphericLight(
       'light1',
       new Vector3(1, 1, 0),
       scene
     );
+    console.log(light1);
+
+    //
     const sphere: Mesh = MeshBuilder.CreateSphere(
       'sphere',
-      { diameter: 1 },
+      { diameter: 2, segments: 32 },
+      scene
+    );
+    // Move the sphere upward 1/2 its height
+    sphere.position.y = 1;
+    console.log(sphere);
+
+    // Built-in 'ground' shape.
+    const ground = MeshBuilder.CreateGround(
+      'ground',
+      { width: 6, height: 6 },
       scene
     );
 
     // hide/show the Inspector
     window.addEventListener('keydown', (ev) => {
       // Shift+Ctrl+Alt+I
-      if (ev.shiftKey && ev.ctrlKey && ev.altKey && ev.keyCode === 73) {
+      if (
+        ev.shiftKey &&
+        ev.ctrlKey &&
+        ev.altKey &&
+        ev.code === '73' // 'i'
+      ) {
         if (scene.debugLayer.isVisible()) {
           scene.debugLayer.hide();
         } else {

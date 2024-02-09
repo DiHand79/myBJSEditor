@@ -31,4 +31,5 @@ export default {
 
 # useld links
 
-- https://doc.babylonjs.com/guidedLearning/usingVite
+- (https://doc.babylonjs.com/guidedLearning/usingVite)
+- START: (https://doc.babylonjs.com/guidedLearning/usingVite#setting-up-vite--babylonjs)
